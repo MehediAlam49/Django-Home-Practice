@@ -7,5 +7,5 @@ from authProject.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', signup , name='signup'),
-    path('login/', login , name='login'),
+    path('signin/', signin , name='signin'),
 ]

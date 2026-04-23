@@ -28,5 +28,5 @@ def signup(req):
             return redirect('signup')
     return render(req, 'signup.html')
 
-def login(request):
+def signin(request):
     return render(request, 'login.html')
