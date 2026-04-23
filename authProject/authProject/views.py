@@ -15,4 +15,18 @@ def signup(req):
         
         if password==confirmPassword:
             user=custom_student.objects.create_user(username=username,password=confirmPassword)
+            user.first_name=fname
+            user.last_name=lname
+            user.email=email
+            user.Gender=gender
+            user.Education=education
+            user.UserType=userType
+            
+            user.save()
+            return redirect('login')
+        else:
+            return redirect(signup)
     return render(req, 'signup.html')
+
+def login(request):
+    return render(request, 'login.html')
