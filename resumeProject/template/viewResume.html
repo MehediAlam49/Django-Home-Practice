@@ -1,0 +1,64 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center p-3">
+                <img class="rounded-circle mx-auto mb-3" src="/{{resumeData.ProfilePicture}}" width="150" height="150"
+                    alt="">
+
+                <h3 class="fw-bold">{{resumeData.FullName}}</h3>
+                <hr>
+
+                <p><i class="bi bi-telephone"></i> {{resumeData.Phone}}</p>
+                <p><i class="bi bi-envelope"></i> {{resumeData.Email}}</p>
+                <p><i class="bi bi-geo-alt"></i> {{resumeData.Address}}</p>
+            </div>
+
+            <div class="card shadow-sm mt-4 p-3">
+                <h5 class="fw-bold">Skills</h5>
+                <p>{{resumeData.Skills}}</p>
+            </div>
+
+            <div class="card shadow-sm mt-4 p-3">
+                <h5 class="fw-bold">Certifications</h5>
+                <p>{{resumeData.Certification}}</p>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4 mb-4">
+                <h4 class="fw-bold border-bottom pb-2">Career Objective</h4>
+                <p>{{resumeData.CareerObjective}}</p>
+            </div>
+
+            <div class="card shadow-sm p-4 mb-4">
+                <h4 class="fw-bold border-bottom pb-2">Projects</h4>
+                <p>{{resumeData.Projects}}</p>
+            </div>
+
+            <div class="card shadow-sm p-4 mb-4">
+                <h4 class="fw-bold border-bottom pb-2">Education</h4>
+                <p><strong>Degree:</strong> {{educationData.Degree}}</p>
+                <p><strong>Institution:</strong> {{educationData.Institution}}</p>
+                <p><strong>Year:</strong> {{educationData.graduationYear}}</p>
+            </div>
+
+            <div class="card shadow-sm p-4 mb-4">
+                <h4 class="fw-bold border-bottom pb-2">Work Experience</h4>
+                <p><strong>Company:</strong> {{workData.Company}}</p>
+                <p><strong>Position:</strong> {{workData.position}}</p>
+                <p><strong>Duration:</strong> {{workData.StartDate}} - {{workData.EndDate}}</p>
+            </div>
+
+            <div class="card shadow-sm p-4">
+                <h4 class="fw-bold border-bottom pb-2">References</h4>
+                <p>{{resumeData.References}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
