@@ -23,10 +23,10 @@ def signup(req):
             user.UserType=userType
             
             user.save()
-            return redirect('login')
+            return redirect('signin')
         else:
             return redirect('signup')
     return render(req, 'signup.html')
 
 def signin(request):
-    return render(request, 'login.html')
+    return render(request, 'signin.html')
