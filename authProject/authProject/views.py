@@ -14,7 +14,7 @@ def signup(req):
         education=req.POST.get('education')
         
         if password==confirmPassword:
-            user=custom_student.objects.create_user(username=username,password=confirmPassword)
+            user=custom_student.objects.create_user(username=username,password=password)
             user.first_name=fname
             user.last_name=lname
             user.email=email
@@ -25,7 +25,7 @@ def signup(req):
             user.save()
             return redirect('login')
         else:
-            return redirect(signup)
+            return redirect('signup')
     return render(req, 'signup.html')
 
 def login(request):
