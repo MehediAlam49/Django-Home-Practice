@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate,login,logout
 from authApp.models import *
 
 def signup(req):
@@ -6,8 +7,8 @@ def signup(req):
         userType=req.POST.get('userType')
         fname=req.POST.get('fname')
         lname=req.POST.get('lname')
-        username=req.POST.get('username')
         email=req.POST.get('email')
+        username=req.POST.get('username')
         password=req.POST.get('password')
         confirmPassword=req.POST.get('confirmPassword')
         gender=req.POST.get('gender')
@@ -29,4 +30,17 @@ def signup(req):
     return render(req, 'signup.html')
 
 def signin(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        
+        user=authenticate(username=username,password=password)
+        if user:
+            login(request,user)
+            return redirect('dashboard')
+        else:
+            return redirect('signin')
     return render(request, 'signin.html')
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
