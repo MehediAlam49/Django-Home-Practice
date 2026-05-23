@@ -3,4 +3,5 @@ from form_app.views import *
 
 urlpatterns = [
     path('', product_list, name='product_list'),
+    path('add_product/', add_product, name='add_product'),
 ]
